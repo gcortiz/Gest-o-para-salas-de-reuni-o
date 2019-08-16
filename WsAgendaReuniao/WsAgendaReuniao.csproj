@@ -75,9 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Agendamentos.html" />
     <Content Include="AgendarReuniao.html" />
-    <Content Include="Funcionarios.html" />
     <Content Include="lib\angular.js" />
     <Content Include="lib\bootstrap.css" />
     <Content Include="lib\bootstrap.js" />
@@ -91,14 +89,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Periodos.html" />
-    <Content Include="Reservas.html" />
-    <Content Include="Salas.html" />
     <Content Include="Scripts\Agendamentos.js" />
-    <Content Include="Scripts\Funcionarios.js" />
-    <Content Include="Scripts\Periodos.js" />
-    <Content Include="Scripts\Reservas.js" />
-    <Content Include="Scripts\Salas.js" />
     <Content Include="Web.config" />
     <Content Include="WsAgendaSalaReuniao.asmx" />
   </ItemGroup>
@@ -158,6 +149,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
