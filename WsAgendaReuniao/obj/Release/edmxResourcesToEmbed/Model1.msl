@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalaReuniaoModelStoreContainer" CdmEntityContainer="SalaReuniaoEntities">
+    <EntitySetMapping Name="Funcionarios">
+      <EntityTypeMapping TypeName="SalaReuniaoModel.Funcionarios">
+        <MappingFragment StoreEntitySet="Funcionarios">
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Setor" ColumnName="Setor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="SalaReuniaoModel.Periodos">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+          <ScalarProperty Name="NomePeriodo" ColumnName="NomePeriodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="SalaReuniaoModel.Reservas">
+        <MappingFragment StoreEntitySet="Reservas">
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="Sala" ColumnName="Sala" />
+          <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="DtDaReserva" ColumnName="DtDaReserva" />
+          <ScalarProperty Name="DtReservada" ColumnName="DtReservada" />
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salas">
+      <EntityTypeMapping TypeName="SalaReuniaoModel.Salas">
+        <MappingFragment StoreEntitySet="Salas">
+          <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+          <ScalarProperty Name="NomeSala" ColumnName="NomeSala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -45,7 +45,7 @@ app.controller("AgendamentosController", function ($scope, $http) {
 
         var req = new XMLHttpRequest();
         var url = "WsAgendaSalaReuniao.asmx?op=PostReservas";
-        req.open("GET", url, true);
+        req.open("POST", url, true);
         req.setRequestHeader("Content-Type", "application/json");
         req.onreadystatechange = function () {
             if (req.readyState === 4 && req.status === 200) {

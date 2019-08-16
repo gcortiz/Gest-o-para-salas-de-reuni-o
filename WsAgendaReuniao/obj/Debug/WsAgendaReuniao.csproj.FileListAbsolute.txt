@@ -53,8 +53,8 @@ C:\Users\Guilherme\Desktop\WsAgendaReuniao\bin\Microsoft.CodeDom.Providers.DotNe
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\bin\EntityFramework.xml
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\bin\EntityFramework.SqlServer.xml
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.csprojAssemblyReference.cache
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.csproj.CoreCompileInputs.cache
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.csproj.CopyComplete
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.dll
 C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.pdb
-C:\Users\Guilherme\Desktop\WsAgendaReuniao\obj\Debug\WsAgendaReuniao.csprojAssemblyReference.cache

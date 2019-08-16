@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalaReuniaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="IdFuncionario" />
+    </Key>
+    <Property Name="IdFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Setor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="IdPeriodo" />
+    </Key>
+    <Property Name="IdPeriodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomePeriodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Reservas">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DtDaReserva" Type="DateTime" Precision="3" />
+    <Property Name="DtReservada" Type="DateTime" Precision="3" />
+    <Property Name="IdFuncionario" Type="Int32" />
+    <Property Name="IdSala" Type="Int32" />
+    <Property Name="IdPeriodo" Type="Int32" />
+    <Property Name="Funcionario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Sala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Salas">
+    <Key>
+      <PropertyRef Name="IdSala" />
+    </Key>
+    <Property Name="IdSala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeSala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="SalaReuniaoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" />
+    <EntitySet Name="Periodos" EntityType="Self.Periodos" />
+    <EntitySet Name="Reservas" EntityType="Self.Reservas" />
+    <EntitySet Name="Salas" EntityType="Self.Salas" />
+  </EntityContainer>
+</Schema>
