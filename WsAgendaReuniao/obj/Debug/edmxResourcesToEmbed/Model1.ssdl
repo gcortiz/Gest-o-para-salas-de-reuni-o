@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalaReuniaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="IdFuncionario" />
+    </Key>
+    <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="255" />
+    <Property Name="Cargo" Type="varchar" MaxLength="50" />
+    <Property Name="Setor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="IdPeriodo" />
+    </Key>
+    <Property Name="IdPeriodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomePeriodo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reservas">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DtDaReserva" Type="datetime" />
+    <Property Name="DtReservada" Type="datetime" />
+    <Property Name="IdFuncionario" Type="int" />
+    <Property Name="IdSala" Type="int" />
+    <Property Name="IdPeriodo" Type="int" />
+    <Property Name="Funcionario" Type="varchar" MaxLength="255" />
+    <Property Name="Sala" Type="varchar" MaxLength="50" />
+    <Property Name="Periodo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Salas">
+    <Key>
+      <PropertyRef Name="IdSala" />
+    </Key>
+    <Property Name="IdSala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeSala" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="SalaReuniaoModelStoreContainer">
+    <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Periodos" EntityType="Self.Periodos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservas" EntityType="Self.Reservas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salas" EntityType="Self.Salas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

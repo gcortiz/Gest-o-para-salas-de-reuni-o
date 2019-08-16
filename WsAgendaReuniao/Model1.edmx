@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SalaReuniaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Funcionarios">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="255" />
+          <Property Name="Cargo" Type="varchar" MaxLength="50" />
+          <Property Name="Setor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Periodos">
+          <Key>
+            <PropertyRef Name="IdPeriodo" />
+          </Key>
+          <Property Name="IdPeriodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomePeriodo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DtDaReserva" Type="datetime" />
+          <Property Name="DtReservada" Type="datetime" />
+          <Property Name="IdFuncionario" Type="int" />
+          <Property Name="IdSala" Type="int" />
+          <Property Name="IdPeriodo" Type="int" />
+          <Property Name="Funcionario" Type="varchar" MaxLength="255" />
+          <Property Name="Sala" Type="varchar" MaxLength="50" />
+          <Property Name="Periodo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Salas">
+          <Key>
+            <PropertyRef Name="IdSala" />
+          </Key>
+          <Property Name="IdSala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeSala" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SalaReuniaoModelStoreContainer">
+          <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodos" EntityType="Self.Periodos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservas" EntityType="Self.Reservas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salas" EntityType="Self.Salas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SalaReuniaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Funcionarios">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Setor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Periodos">
+          <Key>
+            <PropertyRef Name="IdPeriodo" />
+          </Key>
+          <Property Name="IdPeriodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomePeriodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reservas">
+          <Key>
+            <PropertyRef Name="IdReserva" />
+          </Key>
+          <Property Name="IdReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DtDaReserva" Type="DateTime" Precision="3" />
+          <Property Name="DtReservada" Type="DateTime" Precision="3" />
+          <Property Name="IdFuncionario" Type="Int32" />
+          <Property Name="IdSala" Type="Int32" />
+          <Property Name="IdPeriodo" Type="Int32" />
+          <Property Name="Funcionario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Sala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Salas">
+          <Key>
+            <PropertyRef Name="IdSala" />
+          </Key>
+          <Property Name="IdSala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeSala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SalaReuniaoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" />
+          <EntitySet Name="Periodos" EntityType="Self.Periodos" />
+          <EntitySet Name="Reservas" EntityType="Self.Reservas" />
+          <EntitySet Name="Salas" EntityType="Self.Salas" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SalaReuniaoModelStoreContainer" CdmEntityContainer="SalaReuniaoEntities">
+          <EntitySetMapping Name="Funcionarios">
+            <EntityTypeMapping TypeName="SalaReuniaoModel.Funcionarios">
+              <MappingFragment StoreEntitySet="Funcionarios">
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Setor" ColumnName="Setor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodos">
+            <EntityTypeMapping TypeName="SalaReuniaoModel.Periodos">
+              <MappingFragment StoreEntitySet="Periodos">
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="NomePeriodo" ColumnName="NomePeriodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservas">
+            <EntityTypeMapping TypeName="SalaReuniaoModel.Reservas">
+              <MappingFragment StoreEntitySet="Reservas">
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+                <ScalarProperty Name="Sala" ColumnName="Sala" />
+                <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+                <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+                <ScalarProperty Name="DtDaReserva" ColumnName="DtDaReserva" />
+                <ScalarProperty Name="DtReservada" ColumnName="DtReservada" />
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+                <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salas">
+            <EntityTypeMapping TypeName="SalaReuniaoModel.Salas">
+              <MappingFragment StoreEntitySet="Salas">
+                <ScalarProperty Name="IdSala" ColumnName="IdSala" />
+                <ScalarProperty Name="NomeSala" ColumnName="NomeSala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

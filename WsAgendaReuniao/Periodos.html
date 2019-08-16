@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="PeriodosApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Períodos</title>
+    <script src="lib/angular.js"></script>
+    <link href="lib/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/Periodos.js"></script>
+    <style>
+        .jumbotron {
+            height: 600px;
+            width: 800px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .table {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="PeriodosController" class="jumbotron">
+        <table class="table table-striped" border="1">
+            <thead>
+                <h2>Períodos</h2>
+                <tr>
+                    <th>IdPeriodo</th>
+                    <th>NomePeriodo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="periodo in periodos">
+                    <th>{{periodo.IdPeriodo}}</th>
+                    <th>{{periodo.NomePeriodo}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

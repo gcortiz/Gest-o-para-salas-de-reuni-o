@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html ng-app="AgendamentosApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Agendar Reunião</title>
+    <script src="lib/angular.js"></script>
+    <script src="Scripts/Agendamentos.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        .jumbotron {
+            height: 600px;
+            width: 800px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .table {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-control {
+            width: 200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 12px;
+        }
+
+        .btn {
+            width: 200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="AgendamentosController" class="jumbotron">
+        <table class="table">
+            <tr>
+                {{liberada}}
+                </tr>
+            <tr>
+                <th>
+                    <select class="form-control" ng-model="funcionario" ng-options="funcionario.Nome for funcionario in funcionarios">
+                        <option value="">Selecione um Funcionário</option>
+                    </select>
+                </th>
+                <th>
+                    <select class="form-control" ng-model="sala" ng-options="sala.NomeSala for sala in salas">
+                        <option value="">Selecione uma Sala</option>
+                    </select>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <select class="form-control" ng-model="periodo" ng-options="periodo.NomePeriodo for periodo in periodos">
+                        <option value="">Selecione um Período</option>
+                    </select>
+                </th>
+                <th>
+                    <input class="form-control" type="text" ng-model="reserva.DtReservada" placeholder="__/__/____" />
+                </th>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <th>
+                    <button class="btn btn-primary" ng-click="ValidaReserva(funcionario, sala, periodo, reserva)" ng-disabled="!funcionario.Nome || !sala.NomeSala || !periodo.NomePeriodo || !reserva.DtReservada">
+                        Verificar Disponibiliade
+                    </button>
+                </th>
+                <th>
+                    <button class="btn btn-primary" ng-click="Agendar(funcionario, sala, periodo, reserva)" ng-disabled="!funcionario.Nome || !sala.NomeSala || !periodo.NomePeriodo || !reserva.DtReservada">
+                        Agendar Reunião
+                    </button>
+                </th>
+        </table>
+        <table class="table table-striped table-sm" border="1">
+            <thead>
+                <h2>Reservas</h2>
+                <tr>
+                    <th>Data Reservada</th>
+                    <th>Data da Reserva</th>
+                    <th>Sala</th>
+                    <th>Periodo</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="reserva in reservas">
+                    <th>{{reserva.DtReservada.substr(6,13) | date:'dd/MM/yyyy'}}</th>
+                    <th>{{reserva.DtDaReserva.substr(6,13) | date:'dd/MM/yyyy'}}</th>
+                    <th>{{reserva.Sala}}</th>
+                    <th>{{reserva.Periodo}}</th>
+                    <th>{{reserva.Funcionario}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
